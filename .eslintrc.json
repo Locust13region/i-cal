@@ -12,7 +12,6 @@
 	},
 	"plugins": ["react"],
 	"rules": {
-		"no-unused-vars": ["error", { "caughtErrorsIgnorePattern": "^ignore" }],
 		"semi": ["error", "always"],
 		"quotes": ["error", "double"]
 	}

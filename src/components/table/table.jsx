@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
 import { TableWrapper } from "./table.styles";
 import TableRow from "./tableRow";
@@ -18,8 +18,14 @@ function getEvetns(eventsArr, selectedDate) {
 		return monday <= eventDate && eventDate <= sunday;
 	});
 }
-
 const Table = () => {
+	const rowTimeRef = useRef(null);
+
+	useLayoutEffect(() => {
+		const rowTimeNode = rowTimeRef.current;
+		rowTimeNode.childNodes[new Date().getHours()].scrollIntoView();
+	}, []);
+
 	const { events, currentDate, markedEvent } = useSelector(
 		(state) => state.calendarStore
 	);
@@ -36,7 +42,7 @@ const Table = () => {
 			/>
 		);
 	}
-	return <TableWrapper>{content}</TableWrapper>;
+	return <TableWrapper ref={rowTimeRef}>{content}</TableWrapper>;
 };
 
 export default Table;

@@ -12,6 +12,7 @@ import { markEvent, unmarkEvent } from "../../store/calSlice";
 
 const TableRow = ({ hour, events, currentDate, markedEvent }) => {
 	const dispatch = useDispatch();
+
 	const content = [];
 	for (let i = 0; i < 7; i++) {
 		const day = i === 6 ? 0 : i + 1;
