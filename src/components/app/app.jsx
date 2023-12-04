@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Week from "../week";
 import {
@@ -35,7 +34,6 @@ const checkExist = (str, arr) => {
 };
 const confirmNew = (newInterview, events) => {
 	if (!newInterview) {
-		alert("You entered an invalid date or time!");
 		return null;
 	} else {
 		if (!validateInput(newInterview)) {

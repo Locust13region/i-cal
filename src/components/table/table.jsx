@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
 import { TableWrapper } from "./table.styles";
 import TableRow from "./tableRow";
@@ -23,7 +23,10 @@ const Table = () => {
 
 	useLayoutEffect(() => {
 		const rowTimeNode = rowTimeRef.current;
-		rowTimeNode.childNodes[new Date().getHours()].scrollIntoView();
+		rowTimeNode.childNodes[new Date().getHours()].scrollIntoView({
+			behavior: "smooth",
+			block: "center",
+		});
 	}, []);
 
 	const { events, currentDate, markedEvent } = useSelector(
